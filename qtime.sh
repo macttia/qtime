@@ -199,9 +199,9 @@
 	}
 
 
-	#####################
-	## nuevo registro ###
-	#####################
+	###########################
+	## nuevo registro  OTRO ###
+	###########################
 	otro(){
 	clear
 	echo " ======================="
@@ -234,29 +234,54 @@
 	exit 0
 	mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,$concepto,$tiempo,'Otros')"
 	}
+	
+
+	#################################
+	###  Nuevo Registro Proyecto  ###
+        #################################
+	
 	prj(){
 
-	echo "[1]  7980: Estudio"
-	echo "[2]  7982: Gestion del proyecto"
-	echo "[3]  7983: Peticion Ultimus"
-	echo "[4]  7984: Instalacion Oracle"
-	echo "[5]  7985: Instalacion WAS"
-	echo "[6]  7986: Instalacion SAS"
-	echo "[7]  7987: Puesta en produccion"
-	echo "[8]  7988: Documentacion CPLAN - Pruebas"
-
-		if [ $[prj] -eq 1]; then
+	echo " --------------------------------------------"
+	echo "|               Qtime v1.1                   |"
+	echo "|--------------------------------------------|"
+	echo "|         Nuevo Registro Prooyecto           |"
+	echo " --------------------------------------------"
+	echo "[1]  7980: Estudio                           |"
+	echo "[2]  7982: Gestion del proyecto              |"
+	echo "[3]  7983: Peticion Ultimus                  |"
+	echo "[4]  7984: Instalacion Oracle                |"
+	echo "[5]  7985: Instalacion WAS                   |"
+	echo "[6]  7986: Instalacion SAS                   |"
+	echo "[7]  7987: Puesta en produccion              |"
+	echo "[8]  7988: Documentacion CPLAN - Pruebas     |"
+	echo "============================================="
+	echo -n "Seleccione una Fase: [1-8]  "
+	read proj
+		if [ $proj -eq 1 ]; then
 			concepto="7980: Estudio"
-			echo
-			echo $concepto
-	exit 0
-		elif [ $[prj] -eq 2 ]; then
-			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,'$concepto','$tiempo','PAI')"
+		elif [ $proj -eq 2 ]; then
+			concepto="7982: Gestion del proyecto"
+		elif [ $proj -eq 3 ]; then
+			cooncepto="7983: Peticion Ultimus"
+		elif [ $proj -eq 4 ]; then
+			cooncepto="7984: Instalacion Oracle"
+		elif [ $proj -eq 5 ]; then
+			cooncepto="7985: Instalacion WAS"
+		elif [ $proj -eq 6 ]; then
+			cooncepto="7986: Instalacion SAS"
+		elif [ $proj -eq 7 ]; then
+			cooncepto="7987: Puesta en produccion"
+		elif [ $proj -eq 8 ]; then
+			cooncepto="7988: Documentacion CPLAN - Pruebas"
+		else
+
+	echo "Opcion inexsistente, debe elegir entre 1 - 8"
+	prj
 
 		fi
 
-	echo "[5]  TCPD-171"
-	echo "[6]  Proyecto-7978"
+
 	}
 
 	rtball(){
