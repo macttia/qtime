@@ -222,16 +222,15 @@
 		elif [ $[otroV] -eq 1 ]; then
 			echo 'Concepto: Otro ...:'
 			read concepto
+	
+		else
+		otro
 	fi
 
 	echo
 	echo -n "Tiempo: "
 	read tiempo
 	echo
-	echo "Concepto: "$concepto
-	echo "Fecha: "$fecha
-	echo "Tiempo: "$tiempo
-	exit 0
 	mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,$concepto,$tiempo,'Otros')"
 	}
 	
