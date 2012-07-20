@@ -262,17 +262,17 @@
 		elif [ $proj -eq 2 ]; then
 			concepto="7982: Gestion del proyecto"
 		elif [ $proj -eq 3 ]; then
-			cooncepto="7983: Peticion Ultimus"
+			concepto="7983: Peticion Ultimus"
 		elif [ $proj -eq 4 ]; then
-			cooncepto="7984: Instalacion Oracle"
+			concepto="7984: Instalacion Oracle"
 		elif [ $proj -eq 5 ]; then
-			cooncepto="7985: Instalacion WAS"
+			concepto="7985: Instalacion WAS"
 		elif [ $proj -eq 6 ]; then
-			cooncepto="7986: Instalacion SAS"
+			concepto="7986: Instalacion SAS"
 		elif [ $proj -eq 7 ]; then
-			cooncepto="7987: Puesta en produccion"
+			concepto="7987: Puesta en produccion"
 		elif [ $proj -eq 8 ]; then
-			cooncepto="7988: Documentacion CPLAN - Pruebas"
+			concepto="7988: Documentacion CPLAN - Pruebas"
 		else
 
 	echo "Opcion inexsistente, debe elegir entre 1 - 8"
@@ -280,7 +280,12 @@
 
 		fi
 
-
+	echo
+	echo -n "Tiempo: "
+	read tiempo
+	echo
+	mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',NOW(),'$concepto','$tiempo','Proyecto-7978')"
+exit 0
 	}
 
 	rtball(){
