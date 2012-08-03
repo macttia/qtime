@@ -18,7 +18,6 @@
 	hoy=`date +"%Y-%m-%d"`
 	. /home/users/mat/qtime/include/auth
 	search(){
-	exit 0
 	clear
 	echo " ================"
 	echo "| Search Custom  |"
@@ -203,6 +202,7 @@
 	## nuevo registro  OTRO ###
 	###########################
 	otro(){
+	fecha=`date +"%Y-%m-%d"`
 	clear
 	echo " ======================="
 	echo "| Nuevo Registro Otros  |"
@@ -240,7 +240,7 @@
         #################################
 	
 	prj(){
-
+	fecha=`date +"%Y-%m-%d"`
 	echo " --------------------------------------------"
 	echo "|               Qtime v1.1                   |"
 	echo "|--------------------------------------------|"
@@ -284,8 +284,7 @@
 	echo -n "Tiempo: "
 	read tiempo
 	echo
-	mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',NOW(),'$concepto','$tiempo','Proyecto-7978')"
-exit 0
+	mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,'$concepto','$tiempo','Proyecto-7978')"
 	}
 
 	rtball(){
@@ -310,7 +309,7 @@ exit 0
 	echo "[2]  PAI"
 	echo "[3]  RTB"
 	echo
-	echo -n "Seleccione TAG de las opciones [1-7]: "
+	echo -n "Seleccione TAG de las opciones [1-3]: "
 	read tag1
 
 		if [ $[tag1] -eq 1 ]; then
