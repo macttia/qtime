@@ -287,6 +287,26 @@
 	mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,'$concepto','$tiempo','Proyecto-7978')"
 	}
 
+	cdia(){
+	fecha="now()"
+	clear
+	echo " =============================="
+	echo "| Nuevo Registro Custom diario |"
+	echo " =============================="
+	echo
+	echo -n "Concepto: "
+	read concepto
+	echo
+	echo -n "Tiempo: "
+	read tiempo
+	echo
+	echo -n "Tag :"
+	read tag2
+	echo
+        mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,'$concepto','$tiempo','$tag2')"
+	}
+	
+
 	rtball(){
 	fecha="now()"
 	clear
@@ -464,6 +484,7 @@ echo " -------------------------------"
 echo "[r]   RTB                       |"
 echo "[p]   Proyectos                 |"
 echo "[o]   Otro                      |"
+echo "[c]   Custom Dia                |"
 echo "[i]   Informes                  |"
 echo "[b]   Busqueda                  |"
 echo "[e]   Eliminar registro         |"
@@ -480,6 +501,7 @@ case $men in
 r) rtball ;;
 p) prj ;;
 o) otro ;;
+c) cdia ;;
 i) reporte_menu ;;
 b) search ;;
 e) del ;;
