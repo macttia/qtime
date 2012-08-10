@@ -17,6 +17,7 @@
 	YY=`date +"%Y"`
 	hoy=`date +"%Y-%m-%d"`
 	. /home/users/mat/qtime/include/auth
+	
 	search(){
 	clear
 	echo " ================"
@@ -288,13 +289,26 @@
 	}
 
 	cdia(){
-	fecha="now()"
+	unset fecha
 	clear
 	echo " =============================="
 	echo "| Nuevo Registro Custom diario |"
 	echo " =============================="
 	echo
-	echo -n "Concepto: "
+	echo -n "Fecha de hoy? (S/n) "
+	read Cfecha
+		if [ $Cfecha == "n" ] ; then
+			echo -n "Fecha (yyyy-mm-dd): "
+			read fecha_tmp
+			fecha=`echo $fecha_tmp`
+		elif [ $Cfecha == "N" ]; then
+			echo -n "Fecha (yyyy-mm-dd): "
+			read fecha_tmp
+			fecha=`echo $fecha_tmp`
+	
+	fi
+	fecha="now()"
+	echo -n "Concepto: " 
 	read concepto
 	echo
 	echo -n "Tiempo: "
@@ -303,7 +317,7 @@
 	echo -n "Tag :"
 	read tag2
 	echo
-        mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,'$concepto','$tiempo','$tag2')"
+        mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('','$fecha','$concepto','$tiempo','$tag2')"
 	}
 	
 
