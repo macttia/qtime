@@ -305,9 +305,10 @@
 			echo -n "Fecha (yyyy-mm-dd): "
 			read fecha_tmp
 			fecha=`echo $fecha_tmp`
-	
+	      		
+		else
+			fecha="now()"
 	fi
-	fecha="now()"
 	echo -n "Concepto: " 
 	read concepto
 	echo
