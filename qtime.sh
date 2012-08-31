@@ -166,12 +166,20 @@
 	YY="2012"
 	echo -n "Codigo: "
 	read proj
+		if [ -z "${proj}" ]; then
 	echo
-	mysql -u$userdb -p$passdb qtime -e  "SELECT id, fecha,tag,concepto,tiempo FROM registros WHERE fecha LIKE '%$proj%' OR concepto LIKE '%$proj%' OR tag LIKE '%$proj%' ORDER by fecha,tag" 
+	mysql -u$userdb -p$passdb qtime -e  "SELECT id, fecha,tag,concepto,tiempo FROM registros WHERE tag LIKE '%PROY%' ORDER by concepto" 
 	echo
 	echo
-	mysql -u$userdb -p$passdb qtime -e "select sum(tiempo) as 'Tiempo TOTAL (hrs.)' from registros WHERE fecha LIKE '%$proj%' OR concepto LIKE '%$proj%' OR tag LIKE '%$proj%' ORDER by fecha"
+	mysql -u$userdb -p$passdb qtime -e "select sum(tiempo) as 'Tiempo TOTAL (hrs.)' from registros WHERE tag LIKE '%PROY%' ORDER by fecha"
 	echo
+		else
+	mysql -u$userdb -p$passdb qtime -e  "SELECT id, fecha,tag,concepto,tiempo FROM registros WHERE tag LIKE '%$proj%' OR concepto like '%$proj%' ORDER by concepto" 
+	echo
+	echo
+	mysql -u$userdb -p$passdb qtime -e "select sum(tiempo) as 'Tiempo TOTAL (hrs.)' from registros WHERE tag LIKE '%$proj%' OR concepto like '%$proj%' ORDER by fecha"
+	echo
+		fi
 	read any
 	}
 
@@ -460,7 +468,7 @@
 	clear
 	echo -n "Cual deseas borrar ?"
 	echo
-	mysql -u$userdb -p$passdb qtime -e "SELECT id,fecha,concepto,tag from registros  WHERE fecha LIKE '%$sdel%' OR concepto LIKE '%$sdel%' OR tag LIKE '%$sdel%' order by fecha asc"
+	mysql -u$userdb -p$passdb qtime -e "SELECT id,fecha,concepto,tag,tiempo from registros  WHERE fecha LIKE '%$sdel%' OR concepto LIKE '%$sdel%' OR tag LIKE '%$sdel%' order by fecha asc"
 	echo
 	echo -n "Id No.: "
 	read ID
