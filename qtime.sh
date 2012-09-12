@@ -240,7 +240,7 @@
 	echo -n "Tiempo: "
 	read tiempo
 	echo
-	mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,$concepto,$tiempo,'Otros')"
+	mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('','$fecha','$concepto','$tiempo','Otros')"
 	}
 	
 
