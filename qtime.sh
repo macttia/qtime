@@ -351,6 +351,8 @@
 	echo "[1]  GIC"
 	echo "[2]  PAI"
 	echo "[3]  RTB"
+	echo "[4]  IOP Admin"
+	echo "[5]  Overtime"
 	echo
 	echo -n "Seleccione TAG de las opciones [1-3]: "
 	read tag1
@@ -361,6 +363,10 @@
 			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,'$concepto','$tiempo','PAI')"
 		elif [ $[tag1] -eq 3 ]; then
 			rtb
+		elif [ $[tag1] -eq 4 ]; then
+			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,'$concepto','$tiempo','IOP Admin')"
+		elif [ $[tag1] -eq 5 ]; then
+			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,'$concepto','$tiempo','IOP Overtime')"
 		else
 	 
 	 dialog --title "Warning !!" --backtitle "Qtime" --msgbox "Lo sentimos!!! Por favor, elija una de las siguientes alternativas: 1-3.  Presione cualquier tecla
