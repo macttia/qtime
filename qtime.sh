@@ -122,7 +122,7 @@
 	echo
 	mysql -u$userdb -p$passdb qtime -e  "SELECT id, fecha,tag,concepto,tiempo FROM registros WHERE fecha between '$YY-$mes-$dia_i' and '$YY-$mes-$dia_t' ORDER by fecha,tag" 
 	echo
-	mysql -u$userdb -p$passdb qtime -e  "SELECT fecha, sum(tiempo) as 'Tiempo (hrs.)', tag FROM registros WHERE fecha between '$YY-$mes-$dia_i' and '$YY-$mes-$dia_t' group by tag order by fecha" 
+	mysql -u$userdb -p$passdb qtime -e  "SELECT sum(tiempo) as 'Tiempo (hrs.)', tag FROM registros WHERE fecha between '$YY-$mes-$dia_i' and '$YY-$mes-$dia_t' group by tag order by fecha" 
 	echo
 	mysql -u$userdb -p$passdb qtime -e "SELECT sum(tiempo) as 'Tiempo TOTAL (hrs.)' from registros where fecha between '$YY-$mes-$dia_i' and '$YY-$mes-$dia_t'"
 	echo
