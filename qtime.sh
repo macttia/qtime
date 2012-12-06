@@ -219,30 +219,24 @@
 	echo 
 	echo "[1]  Vacaciones"
 	echo "[2]  Bajas"
-	echo "[3]  Cursos"
-	echo "[4]  Otros"
+	echo "[3]  Festivo"
+	echo "[4]  Cursos"
+	echo -n "Seleccione comcepto: [1-4]  "
 	read otroV
 		if [ $[otroV] -eq 1 ]; then
-			concepto='Vacaciones'
+			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('','$fecha','Vacaciones','8','Otros')"
 		elif [ $[otroV] -eq 2 ]; then
-			concepto='Bajas'
+			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('','$fecha','Baja Medica','8','Otros')"
 		elif [ $[otroV] -eq 3 ]; then
-			concepto='Cursos'
-		elif [ $[otroV] -eq 1 ]; then
-			echo 'Concepto: Otro ...:'
-			read concepto
-	
-		else
-		otro
+			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('','$fecha','Festivo Legal','8','Otros')"
+		
+		elif [ $[otroV] -eq 4 ]; then
+			echo -n "Tiempo: "
+			read tiempo
+			echo
+			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('','$fecha','Cursos','$tiempo','Otros')"
 	fi
-
-	echo
-	echo -n "Tiempo: "
-	read tiempo
-	echo
-	mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('','$fecha','$concepto','$tiempo','Otros')"
 	}
-	
 
 	#################################
 	###  Nuevo Registro Proyecto  ###
