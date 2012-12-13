@@ -244,41 +244,53 @@
 	
 	prj(){
 	fecha=`date +"%Y-%m-%d"`
-	echo " --------------------------------------------"
-	echo "|               Qtime v1.1                   |"
-	echo "|--------------------------------------------|"
-	echo "|         Nuevo Registro Prooyecto           |"
-	echo " --------------------------------------------"
-	echo "[1]  7980: Estudio                           |"
-	echo "[2]  7982: Gestion del proyecto              |"
-	echo "[3]  7983: Peticion Ultimus                  |"
-	echo "[4]  7984: Instalacion Oracle                |"
-	echo "[5]  7985: Instalacion WAS                   |"
-	echo "[6]  7986: Instalacion SAS                   |"
-	echo "[7]  7987: Puesta en produccion              |"
-	echo "[8]  7988: Documentacion CPLAN - Pruebas     |"
+	echo " ---------------------------------------------"
+	echo "|               Qtime v1.1                    |"
+	echo "|---------------------------------------------|"
+	echo "|         Nuevo Registro Prooyecto            |"
+	echo " ---------------------------------------------"
+	echo "[1]   7980: Estudio                           |"
+	echo "[2]   7982: Gestion del proyecto              |"
+	echo "[3]   7983: Peticion Ultimus                  |"
+	echo "[4]   7984: Instalacion Oracle                |"
+	echo "[5]   7985: Instalacion WAS                   |"
+	echo "[6]   7986: Instalacion SAS                   |"
+	echo "[7]   7987: Puesta en produccion              |"
+	echo "[8]   7988: Documentacion CPLAN - Pruebas     |"
+	echo "[20]  8084: Arquitectura Access / PMA         |"
 	echo "============================================="
 	echo -n "Seleccione una Fase: [1-8]  "
 	read proj
 		if [ $proj -eq 1 ]; then
 			concepto="7980: Estudio"
+			tag="Proyecto-7978"
 		elif [ $proj -eq 2 ]; then
 			concepto="7982: Gestion del proyecto"
+			tag="Proyecto-7978"
 		elif [ $proj -eq 3 ]; then
 			concepto="7983: Peticion Ultimus"
+			tag="Proyecto-7978"
 		elif [ $proj -eq 4 ]; then
 			concepto="7984: Instalacion Oracle"
+			tag="Proyecto-7978"
 		elif [ $proj -eq 5 ]; then
 			concepto="7985: Instalacion WAS"
+			tag="Proyecto-7978"
 		elif [ $proj -eq 6 ]; then
 			concepto="7986: Instalacion SAS"
+			tag="Proyecto-7978"
 		elif [ $proj -eq 7 ]; then
 			concepto="7987: Puesta en produccion"
+			tag="Proyecto-7978"
 		elif [ $proj -eq 8 ]; then
 			concepto="7988: Documentacion CPLAN - Pruebas"
+			tag="Proyecto-7978"
+		elif [ $proj -eq 20 ]; then
+			concepto="8084: Arquitectura Access / PMA"
+			tag="Proyecto-8084"
 		else
 
-	echo "Opcion inexsistente, debe elegir entre 1 - 8"
+	echo "Opcion inexsistente, debe elegir entre 1 - 20"
 	prj
 
 		fi
@@ -287,7 +299,7 @@
 	echo -n "Tiempo: "
 	read tiempo
 	echo
-	mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('','$fecha','$concepto','$tiempo','Proyecto-7978')"
+	mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('','$fecha','$concepto','$tiempo','$tag')"
 	}
 
 	cdia(){
