@@ -472,47 +472,47 @@ fi
 	read tag
 
 		if [ $[tag] -eq 1 ]; then
-			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,'$concepto','$tiempo','Revision y correcion de alarmas')"
+			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('','$fecha','$concepto','$tiempo','Revision y correcion de alarmas')"
 		elif [ $[tag] -eq 2 ]; then
-			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,'$concepto','$tiempo','Reuniones Interna')"
+			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('','$fecha','$concepto','$tiempo','Reuniones Interna')"
 		elif [ $[tag] -eq 3 ]; then
-			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,'$concepto','$tiempo','Gestion del buzon de servicio')"
+			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('','$fecha','$concepto','$tiempo','Gestion del buzon de servicio')"
 		elif [ $[tag] -eq 4 ]; then
-			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,'$concepto','$tiempo','Reuniones con Cliente')"
+			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('','$fecha','$concepto','$tiempo','Reuniones con Cliente')"
 		elif [ $[tag] -eq 5 ]; then
-			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,'$concepto','$tiempo','Revision recusos / estado de Sistema (logs, tablespace, CPU, disco, procesos, usuarios)')"
+			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('','$fecha','$concepto','$tiempo','Revision recusos / estado de Sistema (logs, tablespace, CPU, disco, procesos, usuarios)')"
 		elif [ $[tag] -eq 6 ]; then
-			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,'$concepto','$tiempo','Actualizacion documentacion interna')"
+			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('','$fecha','$concepto','$tiempo','Actualizacion documentacion interna')"
 		elif [ $[tag] -eq 7 ]; then
-			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,'$concepto','$tiempo','Actualizacion documentacion servicio')"
+			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('','$fecha','$concepto','$tiempo','Actualizacion documentacion servicio')"
 		elif [ $[tag] -eq 8 ]; then
-			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,'$concepto','$tiempo','Gestion de cadenas (Revision, creacion, modificacion y eliminacion)')"
+			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('','$fecha','$concepto','$tiempo','Gestion de cadenas (Revision, creacion, modificacion y eliminacion)')"
 		elif [ $[tag] -eq 9 ]; then
-			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,'$concepto','$tiempo','Revision estado backups (Sistemas y BBDD)')"
+			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('','$fecha','$concepto','$tiempo','Revision estado backups (Sistemas y BBDD)')"
 		elif [ $[tag] -eq 10 ]; then
-			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,'$concepto','$tiempo','CPLAN')"
+			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('','$fecha','$concepto','$tiempo','CPLAN')"
 		elif [ $[tag] -eq 11 ]; then
-			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,'$concepto','$tiempo','Soporte desarrollo aplicaciones')"
+			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('','$fecha','$concepto','$tiempo','Soporte desarrollo aplicaciones')"
 		elif [ $[tag] -eq 12 ]; then
-			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,'$concepto','$tiempo','Definicion / modificacion nuevas alertas')"
+			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('','$fecha','$concepto','$tiempo','Definicion / modificacion nuevas alertas')"
 		elif [ $[tag] -eq 13 ]; then
-			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,'$concepto','$tiempo','Elaboracion Plan de capacidad / RSI')"
+			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('','$fecha','$concepto','$tiempo','Elaboracion Plan de capacidad / RSI')"
 		elif [ $[tag] -eq 14 ]; then
-			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,'$concepto','$tiempo','Elaboracion de Quadres Comanament')"
+			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('','$fecha','$concepto','$tiempo','Elaboracion de Quadres Comanament')"
 		elif [ $[tag] -eq 15 ]; then
-			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,'$concepto','$tiempo','Gestion de la planificacion')"
+			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('','$fecha','$concepto','$tiempo','Gestion de la planificacion')"
 		elif [ $[tag] -eq 16 ]; then
-			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,'$concepto','$tiempo','Planes de recuperacion de servidores')"
+			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('','$fecha','$concepto','$tiempo','Planes de recuperacion de servidores')"
 		elif [ $[tag] -eq 17 ]; then
-			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,'$concepto','$tiempo','Revision / Actualizacion Sistema')"
+			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('','$fecha','$concepto','$tiempo','Revision / Actualizacion Sistema')"
 		elif [ $[tag] -eq 18 ]; then
-			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,'$concepto','$tiempo','Revision certificados')"
+			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('','$fecha','$concepto','$tiempo','Revision certificados')"
 		elif [ $[tag] -eq 19 ]; then
-			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,'$concepto','$tiempo','Checklist matinal')"
+			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('','$fecha','$concepto','$tiempo','Checklist matinal')"
 		elif [ $[tag] -eq 20 ]; then
-			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,'$concepto','$tiempo','Tunning de aplicaciones')"
+			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('','$fecha','$concepto','$tiempo','Tunning de aplicaciones')"
 		elif [ $[tag] -eq 21 ]; then
-			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,'$concepto','$tiempo','Validacion información replica de discos')"
+			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('','$fecha','$concepto','$tiempo','Validacion información replica de discos')"
 		else
 
 	dialog --title "Warning !!" --backtitle "Qtime" --msgbox "Lo sentimos!!! Por favor, elija una de las siguientes alternativas: 1-21.  Presione cualquier tecla...
