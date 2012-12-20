@@ -18,6 +18,12 @@
 	hoy=`date +"%Y-%m-%d"`
 	. /home/users/mat/qtime/include/auth
 	
+	customF(){
+	echo -n "Fecha (yyyy-mm-dd): "
+        read fecha_tmp
+        fecha=`echo $fecha_tmp`
+	}
+
 	search(){
 	clear
 	echo " ================"
@@ -243,7 +249,32 @@
         #################################
 	
 	prj(){
-	fecha=`date +"%Y-%m-%d"`
+	clear
+        unset fecha
+        echo -n "Fecha de hoy? (S/n) "
+        read Cfecha
+                        if [ -z "$Cfecha" ]; then
+                                Cfecha="s"
+fi
+                        if [ "$Cfecha" = "n" ] ; then
+                                echo -n "Fecha (yyyy-mm-dd): "
+                                read fecha_tmp
+                                fecha=`echo $fecha_tmp`
+                        elif [ "$Cfecha" = "N" ] ; then
+                                echo -n "Fecha (yyyy-mm-dd): "
+                                read fecha_tmp
+                                fecha=`echo $fecha_tmp`
+                else
+                        if [ "$Cfecha" = "S" ] ; then
+                                fecha=`date +"%Y-%m-%d"`
+                        elif [ "$Cfecha" = "s" ] ; then
+                                fecha=`date +"%Y-%m-%d"`
+fi
+        fi
+	echo
+	echo "Fecha registros a usar: "$fecha
+echo
+echo
 	echo " ---------------------------------------------"
 	echo "|               Qtime v1.1                    |"
 	echo "|---------------------------------------------|"
@@ -337,8 +368,31 @@
 	
 
 	rtball(){
-	fecha="now()"
 	clear
+	unset fecha
+	echo -n "Fecha de hoy? (S/n) "
+        read Cfecha
+			if [ -z "$Cfecha" ]; then
+				Cfecha="s"
+fi	 
+			if [ "$Cfecha" = "n" ] ; then
+                        	echo -n "Fecha (yyyy-mm-dd): "
+                        	read fecha_tmp
+                        	fecha=`echo $fecha_tmp`
+			elif [ "$Cfecha" = "N" ] ; then
+                        	echo -n "Fecha (yyyy-mm-dd): "
+                        	read fecha_tmp
+                        	fecha=`echo $fecha_tmp`
+		else
+			if [ "$Cfecha" = "S" ] ; then
+				fecha=`date +"%Y-%m-%d"`
+			elif [ "$Cfecha" = "s" ] ; then
+				fecha=`date +"%Y-%m-%d"`
+fi 
+	fi
+	echo "Fecha registro a usar: "$fecha		
+	echo
+	echo
 	echo " ====================="
 	echo "| Nuevo Registro RTB  |"
 	echo " ====================="
@@ -350,10 +404,13 @@
 	read tiempo
 	echo
 	tg1
-	}
+}
+
 
 	tg1()
 	{
+	echo
+	echo "fecha:"$fecha
 	echo "[1]  GIC"
 	echo "[2]  PAI"
 	echo "[3]  RTB"
@@ -364,18 +421,18 @@
 	read tag1
 
 		if [ $[tag1] -eq 1 ]; then
-			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,'$concepto','$tiempo','GIC')"
+			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('','$fecha','$concepto','$tiempo','GIC')"
 		elif [ $[tag1] -eq 2 ]; then
-			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,'$concepto','$tiempo','PAI')"
+			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('','$fecha','$concepto','$tiempo','PAI')"
 		elif [ $[tag1] -eq 3 ]; then
 			rtb
 		elif [ $[tag1] -eq 4 ]; then
-			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,'$concepto','$tiempo','IOP Admin')"
+			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('','$fecha','$concepto','$tiempo','IOP Admin')"
 		elif [ $[tag1] -eq 5 ]; then
-			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('',$fecha,'$concepto','$tiempo','IOP Overtime')"
+			mysql -u$userdb -p$passdb qtime -e "INSERT INTO registros Values ('','$fecha','$concepto','$tiempo','IOP Overtime')"
 		else
 	 
-	 dialog --title "Warning !!" --backtitle "Qtime" --msgbox "Lo sentimos!!! Por favor, elija una de las siguientes alternativas: 1-3.  Presione cualquier tecla
+	 dialog --title "Warning !!" --backtitle "Qtime" --msgbox "Lo sentimos!!! Por favor, elija una de las siguientes alternativas: 1-5.  Presione cualquier tecla
 	 para salir del aviso" 9 50
 	 
 	 fi
