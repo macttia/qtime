@@ -217,8 +217,31 @@
 	## nuevo registro  OTRO ###
 	###########################
 	otro(){
-	fecha=`date +"%Y-%m-%d"`
 	clear
+	unset fecha
+	echo -n "Fecha de hoy? (S/n) "
+        read Cfecha
+			if [ -z "$Cfecha" ]; then
+				Cfecha="s"
+fi	 
+			if [ "$Cfecha" = "n" ] ; then
+                        	echo -n "Fecha (yyyy-mm-dd): "
+                        	read fecha_tmp
+                        	fecha=`echo $fecha_tmp`
+			elif [ "$Cfecha" = "N" ] ; then
+                        	echo -n "Fecha (yyyy-mm-dd): "
+                        	read fecha_tmp
+                        	fecha=`echo $fecha_tmp`
+		else
+			if [ "$Cfecha" = "S" ] ; then
+				fecha=`date +"%Y-%m-%d"`
+			elif [ "$Cfecha" = "s" ] ; then
+				fecha=`date +"%Y-%m-%d"`
+fi 
+	fi
+	echo "Fecha registro a usar: "$fecha		
+	echo
+	echo
 	echo " ======================="
 	echo "| Nuevo Registro Otros  |"
 	echo " ======================="
@@ -392,6 +415,7 @@ fi
 	fi
 	echo "Fecha registro a usar: "$fecha		
 	echo
+	mysql -u$userdb -p$passdb qtime -e "select sum(tiempo) as 'Tiempo TOTAL de hoy $fecha' from registros where fecha='$fecha'"
 	echo
 	echo " ====================="
 	echo "| Nuevo Registro RTB  |"
