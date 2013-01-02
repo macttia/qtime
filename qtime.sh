@@ -146,7 +146,7 @@
 	echo " ================="
 	echo
 	echo -n "Patron de busqueda: "
-	YY="2012"
+	YY="2013"
 	echo -n "Mes (01-12): "
 	read mes
 	echo "Fecha : "$YY-$mes
@@ -169,7 +169,7 @@
 	echo " ============================"
 	echo
 	echo -n "Patron de busqueda: "
-	YY="2012"
+	YY="2013"
 	echo -n "Codigo: "
 	read proj
 		if [ -z "${proj}" ]; then
