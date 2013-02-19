@@ -298,21 +298,22 @@ fi
 	echo "Fecha registros a usar: "$fecha
 echo
 echo
-	echo " ---------------------------------------------"
-	echo "|               Qtime v1.1                    |"
-	echo "|---------------------------------------------|"
-	echo "|         Nuevo Registro Prooyecto            |"
-	echo " ---------------------------------------------"
-	echo "[1]   7980: Estudio                           |"
-	echo "[2]   7982: Gestion del proyecto              |"
-	echo "[3]   7983: Peticion Ultimus                  |"
-	echo "[4]   7984: Instalacion Oracle                |"
-	echo "[5]   7985: Instalacion WAS                   |"
-	echo "[6]   7986: Instalacion SAS                   |"
-	echo "[7]   7987: Puesta en produccion              |"
-	echo "[8]   7988: Documentacion CPLAN - Pruebas     |"
-	echo "[20]  8084: Arquitectura Access / PMA         |"
-	echo "============================================="
+	echo " -----------------------------------------------"
+	echo "|                 Qtime v1.1                    |"
+	echo "|-----------------------------------------------|"
+	echo "|           Nuevo Registro Prooyecto            |"
+	echo " -----------------------------------------------"
+	echo "[1]   7980  : Estudio                           |"
+	echo "[2]   7982  : Gestion del proyecto              |"
+	echo "[3]   7983  : Peticion Ultimus                  |"
+	echo "[4]   7984  : Instalacion Oracle                |"
+	echo "[5]   7985  : Instalacion WAS                   |"
+	echo "[6]   7986  : Instalacion SAS                   |"
+	echo "[7]   7987  : Puesta en produccion              |"
+	echo "[8]   7988  : Documentacion CPLAN - Pruebas     |"
+	echo "[20]  8084  : Arquitectura Access / PMA         |"
+	echo "[30]  16593 : Eina B&R : IBM DWH                |"
+	echo "================================================"
 	echo -n "Seleccione una Fase: [1-8]  "
 	read proj
 		if [ $proj -eq 1 ]; then
@@ -342,9 +343,12 @@ echo
 		elif [ $proj -eq 20 ]; then
 			concepto="8084: Arquitectura Access / PMA"
 			tag="Proyecto-8084"
+		elif [ $proj -eq 30 ]; then
+			concepto="16593 : Eina B&R : IBM DWH"
+			tag="Proyecto-16593"
 		else
 
-	echo "Opcion inexsistente, debe elegir entre 1 - 20"
+	echo "Opcion inexsistente, debe elegir entre 1 - 30"
 	prj
 
 		fi
